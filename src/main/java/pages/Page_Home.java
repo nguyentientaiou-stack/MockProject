@@ -14,6 +14,9 @@ public class Page_Home {
   private By signUpLogin_Link = By.cssSelector("a[href='/login']");
   private By deleteAccount_Link = By.linkText("Delete Account");
   private By logOut_Link = By.linkText("Logout");
+  private By contactUs_Link = By.linkText("Contact us");
+  private By testCases_Link = By.linkText("Test Cases");
+  private By products_Link = By.cssSelector("a[href='/products']");
 
   public Page_Home(WebDriver driver) {
     this.driver = driver;
@@ -66,5 +69,20 @@ public class Page_Home {
     catch (Exception e){
       System.out.println("As expected: Can not find the element !");
     }
+  }
+
+  @Step("Click on Contact Us")
+  public void clickContactUs(){
+    driver.findElement(contactUs_Link).click();
+  }
+
+  @Step("Access test cases function.")
+  public void clickTestCases(){
+    driver.findElement(testCases_Link).click();
+  }
+
+  @Step("Access products function.")
+  public void clickProducts(){
+    driver.findElement(products_Link).click();
   }
 }
