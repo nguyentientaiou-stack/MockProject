@@ -14,41 +14,60 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <log4j.version>2.26.1</log4j.version>
     <slf4j.version>2.0.18</slf4j.version>
-    <aspectj.version>1.9.22</aspectj.version>
+    <aspectj.version>1.9.25</aspectj.version>
     <jupiter.version>6.0.3</jupiter.version>
+    <junit-platform-launcher.version>6.0.3</junit-platform-launcher.version>
+    <allure-jupiter.version>2.35.3</allure-jupiter.version>
     <testng.version>7.12.0</testng.version>
     <seleniumjava.version>4.46.0</seleniumjava.version>
     <seleniumapi.version>4.46.0</seleniumapi.version>
     <seleniumchromdriver.version>4.46.0</seleniumchromdriver.version>
     <alluretestng.version>2.35.3</alluretestng.version>
     <aspectjrt.version>1.9.22</aspectjrt.version>
-    <aspectj.version>1.9.22</aspectj.version>
-
+    <aspectj.version>1.9.25</aspectj.version>
   </properties>
 
   <dependencies>
+    <!-- Source: https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
       <version>${log4j.version}</version>
     </dependency>
 
+    <!-- Source: https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>${slf4j.version}</version>
     </dependency>
 
+    <!-- Source: https://mvnrepository.com/artifact/org.slf4j/slf4j-reload4j -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-reload4j</artifactId>
       <version>${slf4j.version}</version>
     </dependency>
 
+    <!-- Source: https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
       <version>${jupiter.version}</version>
+    </dependency>
+
+    <!-- Source: https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher -->
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-launcher</artifactId>
+      <version>${junit-platform-launcher.version}</version>
+    </dependency>
+
+    <!-- Source: https://mvnrepository.com/artifact/io.qameta.allure/allure-jupiter -->
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-jupiter</artifactId>
+      <version>${allure-jupiter.version}</version>
     </dependency>
 
     <dependency>
@@ -97,18 +116,20 @@
 
   <build>
     <plugins>
-      <!-- Compiler Plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.13.0</version>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
+          <release>17</release>
+        </configuration>
       </plugin>
-
-      <!-- Surefire Plugin Configured with AspectJ Weaver -->
+      <!-- Add the following options to your maven-surefire-plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.2.5</version>
+        <version>3.2.3</version>
         <configuration>
           <argLine>
             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"

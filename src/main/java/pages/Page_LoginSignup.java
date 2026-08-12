@@ -1,10 +1,14 @@
 package pages;
 
 import io.qameta.allure.Step;
+import java.time.Duration;
 import keywords.CommonKeywords;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class Page_LoginSignup {
@@ -62,7 +66,12 @@ public class Page_LoginSignup {
     driver.findElement(newSignUpName_Textbox).sendKeys(username);
     driver.findElement(newSignUpEmail_Textbox).clear();
     driver.findElement(newSignUpEmail_Textbox).sendKeys(email);
-    driver.findElement(signUp_Button).click();
+
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    WebElement signUpButton = wait.until(ExpectedConditions.visibilityOfElementLocated(signUp_Button));
+    signUpButton.click();
+
+    //driver.findElement(signUp_Button).click();
   }
 
   @Step("Verify that Enter Account Information is visible")
