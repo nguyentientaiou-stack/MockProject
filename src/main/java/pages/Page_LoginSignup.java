@@ -17,7 +17,7 @@ public class Page_LoginSignup {
   private By newUserSignup_Header = By.xpath("//h2[normalize-space()='New User Signup!']");
   private By newSignUpName_Textbox = By.cssSelector("[data-qa='signup-name']");
   private By newSignUpEmail_Textbox = By.cssSelector("[data-qa='signup-email']");
-  private By signUp_Button = By.cssSelector("[data-qa='signup-button']");
+  private By signUp_Button = By.xpath("//button[@data-qa='signup-button']");
   private By enterAccountInformation_Text = By.xpath("//b[normalize-space()='Enter Account Information']");
   private By titleMr_Radiobutton = By.xpath("//input[@id='id_gender1']");
   private By titleMrs_Radiobutton = By.xpath("//input[@id='id_gender2']");
@@ -76,7 +76,7 @@ public class Page_LoginSignup {
 
   @Step("Verify that Enter Account Information is visible")
   public void verifyEnterAccountInformationIsVisible() {
-    driver.findElement(enterAccountInformation_Text).isDisplayed();
+    Assert.assertTrue(driver.findElement(enterAccountInformation_Text).isDisplayed());
     CommonKeywords common = new CommonKeywords(driver);
     common.screenshot();
   }
@@ -142,7 +142,7 @@ public class Page_LoginSignup {
 
   @Step("Verify Login To Your Account is visible.")
   public void verifyLoginToYourAccountIsVisible(){
-    driver.findElement(loginToYourAccount_Header).isDisplayed();
+    Assert.assertTrue(driver.findElement(loginToYourAccount_Header).isDisplayed());
     CommonKeywords common = new CommonKeywords(driver);
     common.screenshot();
   }
@@ -158,14 +158,14 @@ public class Page_LoginSignup {
 
   @Step("Verify Your Email Or Password Incorrect notification is visible.")
   public void verifyNotificationYourEmailOrPasswordIncorrectIsVisible(){
-    driver.findElement(yourEmailOrPasswordIncorrect_Textbox).isDisplayed();
+    Assert.assertTrue(driver.findElement(yourEmailOrPasswordIncorrect_Textbox).isDisplayed());
     CommonKeywords common = new CommonKeywords(driver);
     common.screenshot();
   }
 
   @Step("Verify Email Already Exist notification is visible.")
   public void verifyNotificationEmailAlreadyExistIsVisible(){
-    driver.findElement(emailAlreadyExist_Textbox).isDisplayed();
+    Assert.assertTrue(driver.findElement(emailAlreadyExist_Textbox).isDisplayed());
     CommonKeywords common = new CommonKeywords(driver);
     common.screenshot();
   }

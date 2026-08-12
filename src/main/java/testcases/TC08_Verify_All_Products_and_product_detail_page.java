@@ -46,6 +46,9 @@ public class TC08_Verify_All_Products_and_product_detail_page {
     // 8. User is landed to product detail page
     pageProducts.verifyUserIsLandedToProductDetail("https://automationexercise.com/product_details/1");
 
+    // 9. Verify that detail detail is visible: product name, category, price, availability, condition, brand
+    pageProducts.verifyDetailOfProductIsVisible();
+
   }
 
   @AfterMethod

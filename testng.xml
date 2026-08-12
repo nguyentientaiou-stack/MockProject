@@ -6,7 +6,11 @@
       <class name="testcases.TC02_Login_User_with_correct_email_and_password"/>
       <class name="testcases.TC03_Login_User_with_incorrect_email_and_password"/>
       <class name="testcases.TC04_Logout_User"/>
-      <class name="testcases.TC05_Register_User_with_existing_email"/>
+      <class name="testcases.TC06_ContactUs"/>
+      <class name="testcases.TC07_VerifyTestCasesPage"/>
+      <class name="testcases.TC08_Verify_All_Products_and_product_detail_page"/>
+      <class name="testcases.TC25_Verify_Scroll_Up_using_Arrow_button_and_Scroll_Down_functionality"/>
+      <class name="testcases.TC26_Verify_Scroll_Up_without_Arrow_Button_and_Scroll_Down_functionality"/>
     </classes>
   </test>
 </suite>

@@ -5,6 +5,9 @@ import java.time.Duration;
 import keywords.CommonKeywords;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class Page_Home {
@@ -17,6 +20,9 @@ public class Page_Home {
   private By contactUs_Link = By.linkText("Contact us");
   private By testCases_Link = By.linkText("Test Cases");
   private By products_Link = By.cssSelector("a[href='/products']");
+  private By subscription_Header = By.xpath("//h2[text()='Subscription']");
+  private By arrowButtonMoveUpward = By.xpath("//i[@class='fa fa-angle-up']");
+  private By fullFledgedPracticeWebsiteForAutomationEngineers_Header = By.xpath("//h2[contains(text(), 'Full-Fledged practice website for Automation Engineers')]");
 
   public Page_Home(WebDriver driver) {
     this.driver = driver;
@@ -45,7 +51,7 @@ public class Page_Home {
 
   @Step("Verify logged in as user is visible after logged in successfully.")
   public void verifyLoggedInAsUserIsVisible(String userName){
-    driver.findElement(By.xpath("//b[contains(normalize-space(), '" + userName + "')]")).isDisplayed();
+    Assert.assertTrue(driver.findElement(By.xpath("//b[contains(normalize-space(), '" + userName + "')]")).isDisplayed(), "logged in as user is not visible");
     CommonKeywords common = new CommonKeywords(driver);
     common.screenshot();
   }
@@ -84,5 +90,28 @@ public class Page_Home {
   @Step("Access products function.")
   public void clickProducts(){
     driver.findElement(products_Link).click();
+  }
+
+  @Step("Verify subscription header is visible.")
+  public void verifySubscriptionHeaderIsVisible(){
+    Assert.assertTrue(driver.findElement(subscription_Header).isDisplayed(), "subscription header is not visible");
+    CommonKeywords common = new CommonKeywords(driver);
+    common.screenshot();
+  }
+
+  @Step("Click on Arrow button at bottom right side of the page to move upward")
+  public void clickArrowButtonMoveUpward(){
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    WebElement arrowButton = wait.until(ExpectedConditions.visibilityOfElementLocated(arrowButtonMoveUpward));
+    arrowButton.click();
+  }
+
+  @Step("Verify 'Full-Fledged practice website for Automation Engineers' is visible.")
+  public void verifyFullFledgedPracticeWebsiteForAutomationEngineersIsVisible(){
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    WebElement heroText = wait.until(ExpectedConditions.visibilityOfElementLocated(fullFledgedPracticeWebsiteForAutomationEngineers_Header));
+    Assert.assertTrue(heroText.isDisplayed(), "Full-Fledged practice website for Automation Engineers is not visible");
+    CommonKeywords common = new CommonKeywords(driver);
+    common.screenshot();
   }
 }

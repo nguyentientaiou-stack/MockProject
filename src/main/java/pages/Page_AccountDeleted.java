@@ -19,7 +19,7 @@ public class Page_AccountDeleted {
   @Step("Verify Account Deleted page is visible.")
   public void verifyAccountDeletedPageIsDisplayed(){
 
-    driver.findElement(accountDeleted_Text).isDisplayed();
+    Assert.assertTrue(driver.findElement(accountDeleted_Text).isDisplayed());
     Assert.assertEquals(driver.getCurrentUrl(), "https://automationexercise.com/delete_account");
     CommonKeywords common = new CommonKeywords(driver);
     common.screenshot();
