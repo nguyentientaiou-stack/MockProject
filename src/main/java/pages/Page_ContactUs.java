@@ -6,6 +6,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import java.io.File;
+import org.testng.Assert;
 
 public class Page_ContactUs {
 
@@ -27,7 +28,7 @@ public class Page_ContactUs {
 
   @Step("Verify Get In Touch is visible.")
   public void verifyGetInTouchIsVisible(){
-    driver.findElement(getInTouch_Header).isDisplayed();
+    Assert.assertTrue(driver.findElement(getInTouch_Header).isDisplayed());
     CommonKeywords common = new CommonKeywords(driver);
     common.screenshot();
   }
@@ -67,7 +68,7 @@ public class Page_ContactUs {
 
   @Step("Verify success message 'Success! Your details have been submitted successfully' is visible.")
   public void verifySuccessMessageIsVisible(){
-    driver.findElement(successMessage_Text).isDisplayed();
+    Assert.assertTrue(driver.findElement(successMessage_Text).isDisplayed());
     CommonKeywords common = new CommonKeywords(driver);
     common.screenshot();
   }

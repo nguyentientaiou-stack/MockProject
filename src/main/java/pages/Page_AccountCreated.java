@@ -18,7 +18,7 @@ public class Page_AccountCreated {
 
   @Step("Verify Account Created page is visible.")
   public void verifyAccountCreatedIsVisible(){
-    driver.findElement(accountCreated_Text).isDisplayed();
+    Assert.assertTrue(driver.findElement(accountCreated_Text).isDisplayed(), "Account Created page is not visible.");
     Assert.assertEquals(driver.getCurrentUrl(), "https://automationexercise.com/account_created");
     CommonKeywords common = new CommonKeywords(driver);
     common.screenshot();
