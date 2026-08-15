@@ -25,6 +25,8 @@
     <alluretestng.version>2.35.3</alluretestng.version>
     <aspectjrt.version>1.9.22</aspectjrt.version>
     <aspectj.version>1.9.25</aspectj.version>
+    <ojdbc11.version>23.7.0.25.01</ojdbc11.version>
+    <mysql-connector-j.version>9.7.0</mysql-connector-j.version>
   </properties>
 
   <dependencies>
@@ -70,6 +72,7 @@
       <version>${allure-jupiter.version}</version>
     </dependency>
 
+    <!-- Source: https://mvnrepository.com/artifact/org.testng/testng -->
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
@@ -110,6 +113,20 @@
       <groupId>org.aspectj</groupId>
       <artifactId>aspectjweaver</artifactId>
       <version>${aspectj.version}</version>
+    </dependency>
+
+    <!-- Source: https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc11 -->
+    <dependency>
+      <groupId>com.oracle.database.jdbc</groupId>
+      <artifactId>ojdbc11</artifactId>
+      <version>${ojdbc11.version}</version>
+    </dependency>
+
+    <!-- Source: https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+    <dependency>
+      <groupId>com.mysql</groupId>
+      <artifactId>mysql-connector-j</artifactId>
+      <version>${mysql-connector-j.version}</version>
     </dependency>
 
   </dependencies>
